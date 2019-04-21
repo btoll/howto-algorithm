@@ -1,0 +1,27 @@
+// Factorial.
+
+const permutations = (s, prefix = '', r = []) => {
+    if (s.length === 0) {
+        return r.push(prefix);
+    }
+
+    for (let i = 0; i < s.length; i++) {
+        const rem = s.substr(0, i) + s.substr(i + 1);
+        permutations(rem, prefix + s[i], r);
+    }
+
+    return r;
+};
+
+const s = 'abcd';
+
+const perms = permutations(s);
+//console.log(perms.length);
+
+let prefix = '';
+for (let i = 0; i < s.length; i++) {
+//    console.log('i', i);
+    console.log(s.substr(0, i) + s.substr(i + 1));
+    console.log(prefix + s[i]);
+}
+
