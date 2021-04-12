@@ -1,12 +1,12 @@
-const permutations = (s, prefix = '', arr = []) => {
+const permutations = (s, prefix = "", arr = []) => {
     if (!s.length) {
         arr.push(prefix);
-        return arr;
+        // This `return` isn't strictly necessary.
+        return;
     }
 
     for (let i = 0; i < s.length; i++) {
         const rem = s.substr(0, i) + s.substr(i + 1);
-
         permutations(rem, prefix + s[i], arr);
     }
 
