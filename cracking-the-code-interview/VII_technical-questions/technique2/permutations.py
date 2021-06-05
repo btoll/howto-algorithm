@@ -6,7 +6,7 @@ def swap(s, p, q):
 
 def permute(s, l, r):
     if l == r:
-        print(s)
+        print([s])
         return
 
     i = l
