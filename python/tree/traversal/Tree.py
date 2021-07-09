@@ -1,7 +1,7 @@
 import ipdb
 
 
-class Node:
+class TreeNode:
     def __init__(self, value):
         self.value = value
         self.left = None
@@ -42,11 +42,11 @@ class Tree:
         return self.root
 
     def make_tree(self):
-        # Root must call Node, all other parents will already
+        # Root must call TreeNode, all other parents will already
         # have been instanced and can just be looked-up.
-        self.nodes[0] = self.root = Node(self.nodes[0])
+        self.nodes[0] = self.root = TreeNode(self.nodes[0])
         for i in range(len(self.nodes) // 2):
             parent = self.nodes[i]
-            self.nodes[2*i+1] = parent.left = Node(self.nodes[2*i+1])
+            self.nodes[2*i+1] = parent.left = TreeNode(self.nodes[2*i+1])
             if 2*i+2 < len(self.nodes) and self.nodes[2*i+2] is not None:
-                self.nodes[2*i+2] = parent.right = Node(self.nodes[2*i+2])
+                self.nodes[2*i+2] = parent.right = TreeNode(self.nodes[2*i+2])

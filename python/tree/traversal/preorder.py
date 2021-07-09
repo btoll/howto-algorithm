@@ -1,4 +1,4 @@
-from Tree import Tree
+from Tree import TreeNode
 
 
 # Recursive
@@ -33,8 +33,22 @@ def preorder(root):
     return visited
 
 
-tree = Tree([1, 2, 3, 4, 5, 6])
-print(preorder(tree.get_root()))
-#tree.display()
+#tree = Tree([1, 2, 3, 4, 5, 6])
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+root.right = TreeNode(3)
+root.right.right = TreeNode(6)
 
+print(preorder(root))
+
+#               1
+#             /   \
+#            /     \
+#           2       3
+#          / \       \
+#         /   \       \
+#        4     5       6
+#
 # [1, 2, 4, 8, 9, 5, 10, 11, 3, 6, 12, 13, 7, 14, 15]

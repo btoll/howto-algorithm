@@ -1,39 +1,80 @@
-from Tree import Tree
+import ipdb
+
+from Tree import TreeNode
 
 
-def postorder(root, nodes):
-    if root is None:
-        return []
+# Recursive
+def postorder(root, visited=[]):
+    if not root:
+        return
 
-    if root.left:
-        postorder(root.left, nodes)
-    if root.right:
-        postorder(root.right, nodes)
-    nodes.append(root.value)
+    ipdb.set_trace()
+    postorder(root.left)
+    postorder(root.right)
+    visited.append(root.value)
 
-    return nodes
-
-
-def postorder(root, nodes):
-    curr = root
-    stack = []
-
-    while curr or stack:
-        while curr:
-            stack.append(curr)
-            curr = curr.left
-        curr = stack.pop()
-        while curr:
-            stack.append(curr)
-            curr = curr.right
-        curr = stack.pop()
-        nodes.append(curr.value)
-        curr = curr.right
-
-    return nodes
+    return visited
 
 
-tree = Tree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
-print(postorder(tree.get_root(), []))
+# Iterative
+#def postorder(root):
+#    stack = []
+#    current = root
+#    visited = []
+#
+#    while current or stack:
+#        ipdb.set_trace()
+#        while current:
+#            stack.append(current)
+#            current = current.left
+#
+#        current = stack.pop()
+#
+#        while current:
+#            stack.append(current)
+#            current = current.right
+#
+#        current = stack.pop()
+#        visited.append(current.value)
+#        current = current.right
+#
+#    return visited
 
-# [8, 9, 4, 10, 11, 5, 2, 12, 13, 6, 14, 15, 7, 3, 1]
+
+# Iterative, a queue and a stack.
+#def postorder(root):
+#    stack = [root]
+#    # `queue` is a queue.
+#    queue = []
+#
+#    while stack:
+#        node = stack.pop()
+#        queue.insert(0, node.value)
+#
+#        if node.left:
+#            stack.append(node.left)
+#        if node.right:
+#            stack.append(node.right)
+#
+#    return queue
+
+
+#tree = Tree([1, 2, 3, 4, 5, null, 6])
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+root.right = TreeNode(3)
+root.right.right = TreeNode(6)
+
+print(postorder(root))
+
+#               1
+#             /   \
+#            /     \
+#           2       3
+#          / \       \
+#         /   \       \
+#        4     5       6
+#
+# postorder [4, 5, 2, 6, 3, 1]
