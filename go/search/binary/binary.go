@@ -45,7 +45,6 @@ func recursive_int(n, max, min int) int {
 	return recursive_int(n, max, min)
 }
 
-// Still getting an off-bye-one error when a number is in bounds but not in the slice!
 func recursive_slice(a []int, n int) bool {
 	if len(a) == 0 {
 		return false
@@ -60,7 +59,7 @@ func recursive_slice(a []int, n int) bool {
 	if n < a[mid] {
 		a = a[:mid]
 	} else {
-		a = a[mid:]
+		a = a[mid+1:]
 	}
 
 	return recursive_slice(a, n)
