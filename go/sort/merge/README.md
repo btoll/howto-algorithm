@@ -42,7 +42,7 @@ log<sub>2</sub>16 + 1 = 5
 
 ---
 
-Note that Tthis is not considered an in-place algorithm because the merge (combine) step copies more than `n` elements (into the `lowHalf` and `highHalf` slices).
+Note that this is not considered an in-place algorithm because the merge (combine) step copies more than `n` elements (into the `lowHalf` and `highHalf` slices).
 
 [Khan Academy]: https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/analysis-of-merge-sort
 [Big O notation]: https://en.wikipedia.org/wiki/Big_O_notation

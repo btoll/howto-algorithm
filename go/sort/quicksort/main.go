@@ -4,19 +4,19 @@ import "fmt"
 
 var primes = []int{29, 19, 5, 17, 3, 11, 13, 2, 23, 7}
 
-func swap(first, second int) {
+func swap(p, r int) {
 	// Obviously, don't do the swap if it's the same index!
-	if first != second {
-		primes[first] ^= primes[second]
-		primes[second] = primes[first] ^ primes[second]
-		primes[first] ^= primes[second]
+	if p != r {
+		primes[p] ^= primes[r]
+		primes[r] = primes[p] ^ primes[r]
+		primes[p] ^= primes[r]
 	}
 }
 
 func partition(p, r int) int {
 	q, j, pivot := p, p, primes[r]
 	for j < r {
-		if primes[j] <= pivot {
+		if primes[j] < pivot {
 			swap(q, j)
 			q++
 		}
