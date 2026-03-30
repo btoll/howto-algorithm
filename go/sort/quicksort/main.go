@@ -5,12 +5,10 @@ import "fmt"
 var primes = []int{29, 19, 5, 17, 3, 11, 13, 2, 23, 7}
 
 func swap(p, r int) {
-	// Obviously, don't do the swap if it's the same index!
-	if p != r {
-		primes[p] ^= primes[r]
-		primes[r] = primes[p] ^ primes[r]
-		primes[p] ^= primes[r]
-	}
+	// There could be a case where p == r, but let's not worry about that.
+	primes[p] ^= primes[r]
+	primes[r] = primes[p] ^ primes[r]
+	primes[p] ^= primes[r]
 }
 
 func partition(p, r int) int {
